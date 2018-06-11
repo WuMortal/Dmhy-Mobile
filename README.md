@@ -15,6 +15,8 @@ Dmhy-Mobile网址：[点击查看](http://dmhy.amortal.cn)
 
 ### PC
 
+加载有点慢，请等待...
+
 ![预览](image/2.gif)
 
 ## 分析
