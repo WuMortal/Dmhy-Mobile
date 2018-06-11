@@ -1,0 +1,36 @@
+<h3 class="page-header">番剧时间表</h3>
+<ul class="nav nav-tabs">
+    <li role="presentation" ng-click="select(0)" ng-class="{active:currentDay==0}"><a href="javascript:void(0);">星期天</a></li>
+    <li role="presentation" ng-click="select(1)" ng-class="{active:currentDay==1}"><a href="javascript:void(0);">星期一</a></li>
+    <li role="presentation" ng-click="select(2)" ng-class="{active:currentDay==2}"><a href="javascript:void(0);">星期二</a></li>
+    <li role="presentation" ng-click="select(3)" ng-class="{active:currentDay==3}"><a href="javascript:void(0);">星期三</a></li>
+    <li role="presentation" ng-click="select(4)" ng-class="{active:currentDay==4}"><a href="javascript:void(0);">星期四</a></li>
+    <li role="presentation" ng-click="select(5)" ng-class="{active:currentDay==5}"><a href="javascript:void(0);">星期五</a></li>
+    <li role="presentation" ng-click="select(6)" ng-class="{active:currentDay==6}"><a href="javascript:void(0);">星期六</a></li>
+</ul>
+<div class="schedule">
+    <div class="list-group">
+        <a href="#/Search/1?keyword={{drama.names}}" class="list-group-item" ng-repeat="drama in currentDayData.dramaModels">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" ng-src="{{drama.imgSrc.replace('http','https')}}"
+                         alt="{{drama.names}}">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{drama.names}}</h4>
+
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="mask" ng-show="loading">
+    <div class="loader"></div>
+    <!--<div class="sk-chasing-dots">-->
+    <!--<div class="sk-child sk-dot1"></div>-->
+    <!--<div class="sk-child sk-dot2"></div>-->
+    <!--</div>-->
+</div>

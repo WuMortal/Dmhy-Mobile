@@ -1,0 +1,302 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+}
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+    border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+/*
+ * Main content
+ */
+
+.main {
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4 {
+    margin-bottom: 0;
+}
+
+.placeholder {
+    margin-bottom: 20px;
+}
+
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.list-group .list-group-item .media {
+    margin-top: 0;
+}
+
+.list-group .list-group-item .media .media-left img {
+    width: 64px;
+    height: 103px;
+}
+
+.loader {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    transform: rotate(165deg);
+}
+
+.loader:before, .loader:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%);
+}
+
+.loader:before {
+    animation: before 2s infinite;
+}
+
+.loader:after {
+    animation: after 2s infinite;
+}
+
+@keyframes before {
+    0% {
+        width: 0.5em;
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+    35% {
+        width: 2.5em;
+        box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+    }
+    70% {
+        width: 0.5em;
+        box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+    100% {
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+    }
+}
+
+@keyframes after {
+    0% {
+        height: 0.5em;
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+    }
+    35% {
+        height: 2.5em;
+        box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+    }
+    70% {
+        height: 0.5em;
+        box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+    }
+    100% {
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+    }
+}
+
+/**
+ * Attempt to center the whole thing!
+ */
+html,
+body {
+    height: 100%;
+}
+
+.loader {
+    position: absolute;
+    top: calc(50% - 1.25em);
+    left: calc(50% - 1.25em);
+}
+
+.mask {
+    position: fixed;
+    padding-top: 20%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(232, 232, 232, .6);
+    z-index: 2000;
+    color: #ffffff;
+}
+
+a {
+    cursor: pointer;
+}
+
+/*展示帖子样式*/
+.post-title {
+    font-size: 16px;
+    color: #212121;
+}
+
+.post-title a {
+    color: #212121;
+}
+
+.post-title a:hover {
+    color: #017e66;
+    text-decoration: underline;
+}
+
+.post-description {
+    color: #9E9E9E;
+    font-size: 12px;
+}
+
+/*帖子详细*/
+
+.post .post-content{
+    max-width: 1024px;
+}
+
+.post .post-head {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.post .post-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    line-height: 22px;
+    color: #212121;
+}
+
+.post .post-head .row div {
+    font-size: 12px;
+    color: #959595;
+}
+
+.post .post-content {
+    padding-top: 15px;
+}
+
+.post .post-content img, .post .post-content input[type=image] {
+    width: 100%;
+}
+
+/**种子列表*/
+.post .download-bt{
+    padding-top: 15px;
+    border-top:1px solid #eee;
+}
+
+.post .download-bt .panel {
+    font-size: 12px;
+    color: #212121;
+    max-width: 1024px;
+}
+
+.post .download-bt .panel .panel-body div {
+    border-radius: 3px;
+}
+
+.post .download-bt .panel .panel-body div p {
+    overflow: hidden;
+    padding: 10px;
+    text-line: 22px;
+}
+
+.post .download-bt .panel .panel-body div p span {
+    margin-left: 10px;
+    color: #959595;
+}
+
+.schedule .list-group .list-group-item .media .media-left img{
+    width: 50px;
+    height: 50px;
+}
+.about .content p {
+    font-size: 12px;
+    color: #212121;
+}
+.about .content p a{
+    margin-left: 10px;
+}

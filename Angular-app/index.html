@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="dmhy">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>动漫花园-移动端</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="app.css">
+	<link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">动漫花园</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse" ng-controller="NavController">
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-class="{active:'Topics'==type}"><a href="#/Topics/1">最新帖子</a></li>
+				<li ng-class="{active:'Schedule'==type}"><a href="#/Schedule">番剧索引表</a></li>
+				<li ng-class="{active:'about'==type}"><a href="#/about">关于</a></li>
+			</ul>
+			<form class="navbar-form navbar-right" ng-submit="search()">
+				<div class="form-group">
+					<input type="search" class="form-control" ng-model="keyword" placeholder="搜索动漫...">
+				</div>
+				<button type="submit" class="btn btn-default">搜索</button>
+
+			</form>
+		</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar" ng-controller="NavController">
+				<li ng-class="{active:'Topics'==type}"><a href="#/Topics/1">最新帖子</a></li>
+				<li ng-class="{active:'Schedule'==type}"><a href="#/Schedule">番剧索引表</a></li>
+				<li ng-class="{active:'about'==type}"><a href="#/about">关于</a></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+
+		</div>
+	</div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://static.amortal.top/upload/js/angular.min.js"></script>
+<script src="http://static.amortal.top/upload/js/angular-sanitize.min.js"></script>
+<script src="http://static.amortal.top/upload/js/angular-route.min.js"></script>
+
+<script>
+	$(function(){
+        $('.navbar-collapse ul li').click(function () {
+            $('.navbar-toggle').click();
+        });
+
+        $('button[type="submit"]').click(function () {
+            $('.navbar-toggle').click();
+        });
+
+        $('.form-control').submit(function () {
+            $('.navbar-toggle').click();
+        });
+	});
+</script>
+
+<!-- 主模块 -->
+<script src="app.js"></script>
+
+<!--<script src="components/auto-focus.js"></script>-->
+
+<!-- 番剧帖子 -->
+<script src="view/post_list/controller.js"></script>
+
+<script src="view/detailed_post/controller.js"></script>
+
+<script src="view/schedule/controller.js"></script>
+
+<script src="view/about/controller.js"></script>
+
+</body>
+</html>

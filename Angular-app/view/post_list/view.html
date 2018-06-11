@@ -1,0 +1,48 @@
+<h3 class="page-header">{{title}}</h3>
+<h1 ng-if="message">{{message}}</h1>
+<div class="list-group">
+    <span ng-repeat="item in postList" class="list-group-item">
+
+        <div class="media">
+            <!--<div class="media-left">-->
+            <!--<img class="media-object" ng-src="{{item}}" alt="{{item.alt}}">-->
+            <!--</div>-->
+             <a class="label label-default pull-right"
+                href="#/CategoryPost/1?categoryId={{item.categoryId}}"
+                ng-class="{'label-warning':item.category=='季度全集','label-info':item.category=='ＲＡＷ','label label-danger':item.categoryId == 2}">{{item.category}}</a>
+            <div class="media-body">
+                <h4 class="post-title" class="media-heading"><a href="#/Detailed/{{item.htmlId}}" >{{item.title}}</a></h4>
+
+                <div class="post-description row">
+
+                    <div class="col-xs-6 col-md-3">发布时间: {{item.dateTime}}</div>
+                    <div class="col-xs-6 col-md-3" ng-if="item.teamId">字幕组: <a
+                            href="#/TeamPost/1?teamId={{item.teamId}}">{{item.team}}</a></div>
+
+                     <div class="col-xs-6 col-md-3">文件大小: {{item.fileSize}}</div>
+                    <div class="col-xs-6 col-md-3">点击: <a ng-href="{{item.downloadArrow}}">立即下载</a></div>
+                </div>
+
+            </div>
+        </div>
+    </span>
+</div>
+<div ng-show="!loading">
+    <p>第 {{page}} 页，本页共有: {{totalcount}} 条数据</p>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li ng-class="{disabled:page <= 1 }"><a ng-click="go(page - 1)">上一页</a></li>
+            <li ng-class="{disabled:!nextPage }"><a ng-click="go(page + 1)">下一页</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="mask" ng-show="loading">
+    <div class="loader"></div>
+    <!--<div class="sk-chasing-dots">-->
+    <!--<div class="sk-child sk-dot1"></div>-->
+    <!--<div class="sk-child sk-dot2"></div>-->
+    <!--</div>-->
+</div>
+

@@ -1,0 +1,60 @@
+<div class="media post" ng-show="!loading">
+    <div class="post-head text-center">
+        <h4 class="post-title">{{postDetailed.title}}</h4>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">类型: <a href="#/CategoryPost/1?categoryId={{postDetailed.categoryId}}">{{postDetailed.category}}</a></div>
+            <div class="col-xs-6 col-md-3">发布时间 • {{postDetailed.dateTime}}</div>
+            <div class="col-xs-6 col-md-3">文件大小: {{postDetailed.fileSize}}</div>
+            <div class="col-xs-6 col-md-3">下载地址: <a href="" ng-click="goDownload()">立即下载</a></div>
+        </div>
+    </div>
+    <div class="post-content" ng-bind-html="postDetailed.content|to_trusted">
+
+    </div>
+    <div class="download-bt" id="description-end">
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">BT 列表</div>
+            <!-- 种子详细 -->
+            <ul class="list-group">
+                <li class="list-group-item">會員專用連接: <a href="{{postDetailed.btDict[0].href}}">{{postDetailed.btDict[0].name}}</a></li>
+                <li class="list-group-item">Magnet連接(下载): <a href="{{postDetailed.btDict[1].href}}">{{postDetailed.btDict[1].name}}</a></li>
+                <li class="list-group-item">Magnet連接typeII(下载2):<a href="{{postDetailed.btDict[2].href}}">{{postDetailed.btDict[2].name}}</a></li>
+                <li class="list-group-item">彈幕播放連接: <a href="{{postDetailed.btDict[3].href}}">{{postDetailed.btDict[3].name}}</a></li>
+                <li class="list-group-item">外部搜索連接: <a href="{{postDetailed.btDict[4].href}}">{{postDetailed.btDict[4].name}}</a></li>
+
+            </ul>
+            <div class="panel-body">
+                <h4>种子内容:</h4>
+                <div ng-class="{'bg-success':$odd,'bg-info':$even}" ng-repeat="bt in postDetailed.btContentDict">
+                    <p>{{bt.name}}<span class="pull-right">{{bt.fileSize}}</span></p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="mask" ng-show="loading">
+    <div class="loader"></div>
+    <!--<div class="sk-chasing-dots">-->
+    <!--<div class="sk-child sk-dot1"></div>-->
+    <!--<div class="sk-child sk-dot2"></div>-->
+    <!--</div>-->
+</div>
+<script>window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    },
+    "share": {},
+    "image": {"viewList": ["sqq", "weixin", "qzone", "tsina", "tqq", "renren"], "viewText": "分享到：", "viewSize": "16"},
+    "selectShare": {"bdContainerClass": null, "bdSelectMiniList": ["sqq", "weixin", "qzone", "tsina", "tqq", "renren"]}
+};
+with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
