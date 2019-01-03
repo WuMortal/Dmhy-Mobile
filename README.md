@@ -1,6 +1,6 @@
 # Dmhy「动漫花园」- Mobile
 
-[TOC]
+.NET Core + Angular6 版：https://gitlab.com/dmhy
 
 ## 功能
 
